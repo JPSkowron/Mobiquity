@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import <DropboxSDK/DropboxSDK.h>
 
 @interface ViewController ()
 
@@ -19,9 +20,10 @@
     // Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)didPressLink {
+    if (![[DBSession sharedSession] isLinked]) {
+        [[DBSession sharedSession] linkFromController:self];
+    }
 }
 
 @end
