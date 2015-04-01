@@ -43,7 +43,7 @@
 }
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     UIImage *image = [info valueForKey: UIImagePickerControllerOriginalImage];
-    self.addPhotoImageView.image = image;
+   // self.addPhotoImageView.image = image;
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 
