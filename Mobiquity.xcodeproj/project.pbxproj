@@ -18,6 +18,7 @@
 		508785741ACB314200C41C2D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 508785731ACB314200C41C2D /* Security.framework */; };
 		508785761ACB315000C41C2D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 508785751ACB315000C41C2D /* QuartzCore.framework */; };
 		5087857C1ACB4EBF00C41C2D /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5087857B1ACB4EBF00C41C2D /* DropboxSDK.framework */; };
+		5087857F1ACC8F9D00C41C2D /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5087857E1ACC8F9D00C41C2D /* PhotoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,8 @@
 		508785731ACB314200C41C2D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		508785751ACB315000C41C2D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5087857B1ACB4EBF00C41C2D /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
+		5087857D1ACC8F9D00C41C2D /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
+		5087857E1ACC8F9D00C41C2D /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +102,8 @@
 				5087854F1ACB243100C41C2D /* AppDelegate.m */,
 				508785541ACB243100C41C2D /* ViewController.h */,
 				508785551ACB243100C41C2D /* ViewController.m */,
+				5087857D1ACC8F9D00C41C2D /* PhotoViewController.h */,
+				5087857E1ACC8F9D00C41C2D /* PhotoViewController.m */,
 				508785571ACB243100C41C2D /* Main.storyboard */,
 				5087855A1ACB243100C41C2D /* Images.xcassets */,
 				5087855C1ACB243100C41C2D /* LaunchScreen.xib */,
@@ -238,6 +243,7 @@
 				508785501ACB243100C41C2D /* AppDelegate.m in Sources */,
 				508785561ACB243100C41C2D /* ViewController.m in Sources */,
 				5087854D1ACB243100C41C2D /* main.m in Sources */,
+				5087857F1ACC8F9D00C41C2D /* PhotoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
