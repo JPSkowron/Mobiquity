@@ -8,8 +8,10 @@
 
 #import "PhotoViewController.h"
 
-@interface PhotoViewController ()
+@interface PhotoViewController () <UIImagePickerControllerDelegate, UIDocumentInteractionControllerDelegate, UINavigationControllerDelegate>
+
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong,nonatomic) UIImage *selectedImage;
 
 @end
 
@@ -42,9 +44,10 @@
 
 }
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    UIImage *image = [info valueForKey: UIImagePickerControllerOriginalImage];
-   // self.addPhotoImageView.image = image;
+    self.selectedImage = (UIImage *)[info valueForKey:UIImagePickerControllerOriginalImage];
+    self.imageView.image = self.selectedImage;
     [picker dismissViewControllerAnimated:YES completion:NULL];
+    [self.delegate selectedPhoto:self.selectedImage];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {

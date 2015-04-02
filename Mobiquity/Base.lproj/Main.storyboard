@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="daB-PU-A8R">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -26,7 +27,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellID" id="3Uk-91-TX4">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellID" id="3Uk-91-TX4" customClass="SelectedImageCollectionViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -52,11 +53,11 @@
                                                 <include reference="2TR-ro-Vrf"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <outlet property="imageView" destination="2TR-ro-Vrf" id="4tf-ys-X2z"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
-                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="vXZ-lx-hvc" id="w1t-R6-ZIL"/>
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="tCj-AX-Quc"/>
@@ -64,24 +65,45 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="p43-so-ffo" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="BnV-Mz-W7G"/>
+                            <constraint firstItem="p43-so-ffo" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="CJy-FN-BoM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="p43-so-ffo" secondAttribute="trailing" constant="-16" id="r9F-lw-Ktw"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="p43-so-ffo" secondAttribute="bottom" id="vSr-f0-FYA"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="p43-so-ffo"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="BnV-Mz-W7G"/>
+                                <exclude reference="CJy-FN-BoM"/>
+                                <exclude reference="r9F-lw-Ktw"/>
+                                <exclude reference="vSr-f0-FYA"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="p43-so-ffo"/>
                             </mask>
+                            <mask key="constraints">
+                                <include reference="BnV-Mz-W7G"/>
+                                <include reference="CJy-FN-BoM"/>
+                                <include reference="r9F-lw-Ktw"/>
+                                <include reference="vSr-f0-FYA"/>
+                            </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="qml-6T-4hB">
-                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="lE1-nG-OOB">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="lE1-nG-OOB">
                             <connections>
-                                <segue destination="ty3-5P-Or7" kind="show" id="lfN-go-x1w"/>
+                                <segue destination="ty3-5P-Or7" kind="show" identifier="Segue" id="lfN-go-x1w"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="p43-so-ffo" id="Ng4-nx-nJP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
@@ -100,7 +122,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rLj-4g-gc8">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="0.0" y="64" width="400" height="285"/>
                                 </variation>
                             </imageView>
@@ -122,7 +144,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="266" y="438" width="85" height="30"/>
+                                    <rect key="frame" x="158" y="438" width="85" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="onCameraRollButtonTapped:" destination="ty3-5P-Or7" eventType="touchUpInside" id="SGB-mx-nui"/>
@@ -130,11 +152,21 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="rLj-4g-gc8" secondAttribute="trailing" constant="-16" id="0D0-Ig-TzJ"/>
+                            <constraint firstItem="rLj-4g-gc8" firstAttribute="top" secondItem="8v5-8u-f1H" secondAttribute="bottom" id="JiT-sk-qNv"/>
+                            <constraint firstItem="rLj-4g-gc8" firstAttribute="leading" secondItem="o7A-aD-cYK" secondAttribute="leadingMargin" constant="-16" id="KTy-Vi-SpT"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="rLj-4g-gc8"/>
                                 <exclude reference="kHj-j9-Bte"/>
                                 <exclude reference="3Xx-6I-dwg"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="0D0-Ig-TzJ"/>
+                                <exclude reference="JiT-sk-qNv"/>
+                                <exclude reference="KTy-Vi-SpT"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -142,6 +174,11 @@
                                 <include reference="rLj-4g-gc8"/>
                                 <include reference="kHj-j9-Bte"/>
                                 <include reference="3Xx-6I-dwg"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="0D0-Ig-TzJ"/>
+                                <include reference="JiT-sk-qNv"/>
+                                <include reference="KTy-Vi-SpT"/>
                             </mask>
                         </variation>
                     </view>

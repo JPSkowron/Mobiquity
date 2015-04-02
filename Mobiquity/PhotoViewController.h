@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PhotoViewController : UIViewController <UIImagePickerControllerDelegate, UIDocumentInteractionControllerDelegate, UINavigationControllerDelegate>
+@protocol PhotoViewControllerDelegate
+
+- (void)selectedPhoto:(UIImage *)photo;
+
+@end
+
+@interface PhotoViewController : UIViewController
+
+@property (strong, nonatomic) id<PhotoViewControllerDelegate>delegate;
 
 @end
