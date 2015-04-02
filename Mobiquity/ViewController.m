@@ -41,6 +41,7 @@
         [[DBSession sharedSession] linkFromController:self];
     }
 }
+
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }

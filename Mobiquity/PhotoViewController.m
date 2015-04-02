@@ -24,14 +24,10 @@
 
 - (IBAction)onCameraButtonTapped:(UIButton *)sender {
 
-    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
-    imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
-    imagePickerController.editing = YES;
-    imagePickerController.delegate = (id)self;
-
-    [self presentViewController:imagePickerController animated:YES completion:nil];
-
-
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    [picker setSourceType:(UIImagePickerControllerSourceTypePhotoLibrary)];
+    [self presentViewController:picker animated:YES completion:nil];
 
 }
 
