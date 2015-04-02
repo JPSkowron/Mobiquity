@@ -5,7 +5,7 @@
 //  Created by Brian Smith on 4/9/10.
 //  Copyright 2010 Dropbox, Inc. All rights reserved.
 //
-
+#import <CoreGraphics/CoreGraphics.h>
 
 #import "DBSession.h"
 
